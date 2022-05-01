@@ -1,0 +1,99 @@
+<body>
+<h4>
+  <u>
+    Welcome To Angular 13 Reactive Forms Validation Example!!
+  </u>
+</h4>
+<form [formGroup]="loginform" (ngSubmit)="submit()">
+  <div class="form-group" >
+    <label for="uname1">First name</label>
+    <input
+    formControlName="uname1"
+    id="uname1"
+    type="text"
+    class="form-control" placeholder="Enter first name">
+    <div *ngIf="form['uname1'].touched && form['uname1'].invalid"
+    class="alert alert-danger">
+     <div *ngIf="form['uname1'].errors && form['uname1'].errors['required']">First name is required!!</div>
+    <div *ngIf="form['uname1'].errors && form['uname1'].errors['minlength']">First name should be min 3 character!!</div>
+  </div>
+</div>
+<br>
+ <div class="form-group">
+    <label for="uname2">Last name</label>
+    <input
+    formControlName="uname2"
+    id="uname2"
+    type="text"
+    class="form-control" placeholder="Enter last name">
+    <div *ngIf="form['uname2'].touched && form['uname2'].invalid"
+    class="alert alert-danger">
+    <div *ngIf="form['uname2'].errors && form['uname2'].errors['required']">Last name is required!!</div>
+    <div *ngIf="form['uname2'].errors && form['uname2'].errors['minlength']">Last name should be min 3 character!!</div>
+  </div>
+  </div>
+  <br><br>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+    formControlName="email"
+    id="email"
+    type="text"
+    class="form-control" placeholder="Enter email address">
+    <div *ngIf="form['email'].touched && form['email'].invalid"
+    class="alert alert-danger">
+    <div *ngIf="form['email'].errors && form['email'].errors['required']">Email is required!!</div>
+    <div *ngIf="form['email'].errors && form['email'].errors['email']">Please,enter valid email address!!!!</div>
+  </div>
+  </div>
+  <br><br>
+  <div class="form-group">
+    <label for="body">Body</label>
+    <textarea
+    formControlName="body"
+    id="body"
+    type="text"
+    class="form-control" placeholder="Say something about you">
+    </textarea>
+    <div *ngIf="form['body'].touched && form['body'].invalid"
+    class="alert alert-danger">
+    <div *ngIf="form['body'].errors && form['body'].errors['required']">Body is required!!</div>
+  </div>
+</div>
+     <br><br>
+     <div class="form-group">
+      <label for="contact_no">Contact_no</label>
+      <input
+      formControlName="contact_no"
+      id="contact_no"
+      type="text"
+      class="form-control" placeholder="Enter mobile no">
+      <div *ngIf="form['contact_no'].touched && form['contact_no'].invalid"
+      class="alert alert-danger">
+      <div *ngIf="form['contact_no'].errors && form['contact_no'].errors['required']">Contact number is required!!</div>
+      <div *ngIf="form['contact_no'].errors && form['contact_no'].errors['minlength']">Contact number should be min 10 character!!</div>
+      <div *ngIf="form['contact_no'].errors && form['contact_no'].errors['maxlength']">Contact number shouldn't be more than 10 character!!</div>
+    </div>
+    </div>
+    <br><br>
+  <div class="form-group">
+    <label for="date">Date</label>
+    <input
+    formControlName="date"
+    id="date"
+    type="date"
+    class="form-control" >
+    <div *ngIf="form['date'].touched && form['date'].invalid"
+    class="alert alert-danger">
+    <div *ngIf="form['date'].errors && form['date'].errors['required']">Date is required!!</div>
+  </div>
+</div>
+     <br><br>
+     <button class="btn btn-primary" [disabled]="form['date'].invalid"
+     type="submit">Submit</button>
+     <br><br>
+</form>
+
+</body>
+
+
